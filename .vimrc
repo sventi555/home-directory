@@ -1,5 +1,5 @@
 " sets the colour scheme
-colorscheme industry 
+colorscheme monokai 
 
 " show line numbers
 set number
@@ -15,6 +15,9 @@ set softtabstop=4
 
 " sets tabs to be spaces
 set expandtab
+
+" AUTOINDENT
+set autoindent
 
 
 " netrw stuff
