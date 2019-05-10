@@ -1,6 +1,10 @@
+" theme stuff
+" *********************************** "
 " sets the colour scheme
 colorscheme monokai 
 
+" indentation stuff
+" *********************************** "
 " show line numbers
 set number
 
@@ -16,12 +20,20 @@ set softtabstop=4
 " sets tabs to be spaces
 set expandtab
 
-" AUTOINDENT
-set autoindent
+" set block indent size
+set shiftwidth=4
 
+" filetype indentation
+filetype indent on
+
+" AUTOINDENT
+set smartindent
+
+" no line wrap
+set nowrap
 
 " netrw stuff
-
+" *********************************** "
 " tree view
 let g:netrw_liststyle = 3
 
@@ -34,3 +46,7 @@ let g:netrw_browse_split = 4
 " browser width
 let g:netrw_winsize = 25
 
+" plugin stuff
+" *********************************** "
+" enable pathogen
+execute pathogen#infect()
