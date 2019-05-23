@@ -58,7 +58,12 @@ let g:netrw_winsize = 25
 " new vertical split defaults to right side
 let g:netrw_altv = 1
 " hide certain files
-let g:netrw_list_hide = '.*\.swp$,.DS_Store,*/tmp/*,*.so,*.swp,*.zip,*.git'
+let g:netrw_list_hide = '.*\.swp$,.DS_Store,*/tmp/*,*.so,*.swp,*.zip,*.git,tags'
+
+" Plugins
+" *********************************** "
+" enable man plugin
+runtime! ftplugin/man.vim
 
 " FUNCTIONS
 " *********************************** "
