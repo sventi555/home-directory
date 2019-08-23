@@ -59,6 +59,9 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 call vundle#end()
 
+" show hidden files
+let NERDTreeShowHidden=1
+
 
 " Remaps
 " *********************************** "
