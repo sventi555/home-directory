@@ -32,8 +32,5 @@ vim -c PluginInstall -c qa
 
 # profile setup
 
-# copy over zshrc
-cp $SCRIPT_DIR/dot_files/.zshrc ~/
-
-# install zsh
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# copy over bash profile
+cp $SCRIPT_DIR/dot_files/.bash_profile ~/
