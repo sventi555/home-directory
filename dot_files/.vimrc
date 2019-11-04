@@ -3,7 +3,7 @@ let mapleader=" "
 " display/style stuff
 " *********************************** "
 " sets the colour scheme
-colorscheme monokai 
+colorscheme monokai
 " disable line wrapping
 set nowrap
 " highlight searches
