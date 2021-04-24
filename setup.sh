@@ -29,8 +29,3 @@ fi
 # initialize vim plugins
 vim -c PluginInstall -c qa
 
-
-# profile setup
-
-# copy over bash profile
-cp $SCRIPT_DIR/dot_files/.bash_profile ~/
