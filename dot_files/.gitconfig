@@ -1,0 +1,8 @@
+[gpg]
+	format = ssh
+[user]
+	signingkey = /Users/sven/.ssh/id_rsa.pub
+	name = Stephen Edwards
+	email = 34760298+sventi555@users.noreply.github.com
+[alias]
+	stall = stash --include-untracked
