@@ -11,6 +11,7 @@ vim.opt.rnu = true
 vim.opt.scrolloff = 2
 vim.opt.updatetime = 50
 vim.opt.showcmd = true
+vim.opt.hlsearch = false
 
 -- Windows
 vim.opt.splitright = true
