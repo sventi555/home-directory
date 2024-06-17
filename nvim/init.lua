@@ -84,7 +84,7 @@ Plug('MunifTanjim/nui.nvim')
 Plug('nvim-neo-tree/neo-tree.nvim')
 
 -- status line
-Plug('vim-airline/vim-airline')
+Plug('nvim-lualine/lualine.nvim')
 
 vim.call('plug#end')
 
