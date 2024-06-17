@@ -83,6 +83,9 @@ Plug('nvim-tree/nvim-web-devicons')
 Plug('MunifTanjim/nui.nvim')
 Plug('nvim-neo-tree/neo-tree.nvim')
 
+-- status line
+Plug('vim-airline/vim-airline')
+
 vim.call('plug#end')
 
 -- Color Scheme
