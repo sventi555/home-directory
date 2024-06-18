@@ -4,6 +4,14 @@ require('telescope').setup({
     layout_strategy = 'horizontal',
     layout_config = {
       prompt_position = 'top'
+    },
+    mappings = {
+      n = {
+        ['<C-d>'] = require('telescope.actions').delete_buffer
+      },
+      i = {
+        ['<C-d>'] = require('telescope.actions').delete_buffer
+      }
     }
   }
 })
