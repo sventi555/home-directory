@@ -81,16 +81,27 @@ Plug('hrsh7th/cmp-nvim-lsp')
 Plug('L3MON4D3/LuaSnip')
 Plug('VonHeikemen/lsp-zero.nvim', { ['branch'] = 'v3.x' })
 
--- git gutter
-Plug('airblade/vim-gitgutter')
+-- dev icons
+Plug('nvim-tree/nvim-web-devicons')
+
+-- gitsigns
+Plug('lewis6991/gitsigns.nvim')
 
 -- file tree
-Plug('nvim-tree/nvim-web-devicons')
 Plug('MunifTanjim/nui.nvim')
 Plug('nvim-neo-tree/neo-tree.nvim')
 
 -- status line
 Plug('nvim-lualine/lualine.nvim')
+
+-- quick commenting
+Plug('numToStr/Comment.nvim')
+
+-- indent guides
+Plug('lukas-reineke/indent-blankline.nvim')
+
+-- bracket pairs
+Plug('windwp/nvim-autopairs')
 
 vim.call('plug#end')
 
