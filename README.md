@@ -20,6 +20,7 @@ Drag all fonts into fontbook
         - Disable 'Confirm "Quit iTerm2"'
     - Selection
         - Enable 'Applications in terminal may access clipboard'
+        - Disable 'Clicking on a command selects it to restrict Find and Filter'
 - Appearance
     - General
         - Theme = Minimal
