@@ -14,13 +14,17 @@ Drag all fonts into fontbook
 2) Open iTerm and import the profile _Terminal.json_
 
 3) Update the following settings:
-- General -> Closing
-    - Disable 'Confirm closing multiple sessions'
-    - Disable 'Confirm "Quit iTerm2"'
-- General -> Selection
-    - Enable 'Applications in terminal may access clipboard'
-- Appearance -> General
-    - Theme = Minimal
+- General
+    - Closing
+        - Disable 'Confirm closing multiple sessions'
+        - Disable 'Confirm "Quit iTerm2"'
+    - Selection
+        - Enable 'Applications in terminal may access clipboard'
+- Appearance
+    - General
+        - Theme = Minimal
+    - Dimming
+        - Dimming amount = 15
 
 4) Go to Mac System Preferences -> Privacy & Security -> Developer Tools and add iTerm
 
@@ -41,15 +45,6 @@ Restart the terminal
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-```
-
-
-## tmux
-
-```
-brew install tmux
-cp ./dot_files/.tmux.conf ~/
-tmux source-file ~/.tmux.conf
 ```
 
 
