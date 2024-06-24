@@ -56,11 +56,14 @@ vim.keymap.set('n', '<leader>l', '<C-w>l')
 -- Plugins
 vim.call('plug#begin')
 
+-- Planary fns
+Plug('nvim-lua/plenary.nvim')
+
 -- Tree sitter
 Plug('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate' })
 
 -- Telescope
-Plug('nvim-lua/plenary.nvim')
+Plug('nvim-telescope/telescope-live-grep-args.nvim')
 Plug('nvim-telescope/telescope.nvim', { ['rev'] = '0.1.x' })
 
 -- Oil

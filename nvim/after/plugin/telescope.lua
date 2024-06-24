@@ -1,7 +1,8 @@
+local telescope = require('telescope')
 local builtin = require('telescope.builtin')
 local actions = require('telescope.actions')
 
-require('telescope').setup({
+telescope.setup({
   defaults = {
     sorting_strategy = 'ascending',
     layout_strategy = 'vertical',
@@ -22,8 +23,10 @@ require('telescope').setup({
   }
 })
 
+telescope.load_extension('live_grep_args')
+
 vim.keymap.set('n', '<leader>ff', builtin.find_files)
 vim.keymap.set('n', '<leader>fp', builtin.git_files)
-vim.keymap.set('n', '<leader>fg', builtin.live_grep)
+vim.keymap.set('n', '<leader>fg', telescope.extensions.live_grep_args.live_grep_args)
 vim.keymap.set('n', '<leader>fb', builtin.buffers)
 vim.keymap.set('n', '<leader>fh', builtin.help_tags)
