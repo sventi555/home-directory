@@ -4,7 +4,6 @@ local actions = require('telescope.actions')
 
 telescope.setup({
   defaults = {
-    sorting_strategy = 'ascending',
     layout_strategy = 'vertical',
     layout_config = {
       mirror = true,
