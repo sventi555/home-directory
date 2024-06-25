@@ -28,6 +28,7 @@ require('gitsigns').setup({
       end
     end)
 
+    map('n', '<leader>gs', gitsigns.stage_hunk)
     map('n', '<leader>gr', gitsigns.reset_hunk)
     map('n', '<leader>gR', gitsigns.reset_buffer)
     map('n', '<leader>gp', gitsigns.preview_hunk)

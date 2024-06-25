@@ -106,6 +106,10 @@ Plug('lukas-reineke/indent-blankline.nvim')
 -- bracket pairs
 Plug('windwp/nvim-autopairs')
 
+-- bufferlines
+Plug('akinsho/bufferline.nvim')
+
+
 vim.call('plug#end')
 
 -- Color Scheme
