@@ -1,5 +1,8 @@
 local vim = vim
-local Plug = vim.fn['plug#']
+
+-- =============================================================================
+-- = Options =
+-- =============================================================================
 
 -- Leader
 vim.g.mapleader = ' '
@@ -28,7 +31,10 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.smartindent = true
 
--- Remaps
+-- =============================================================================
+-- = Remaps =
+-- =============================================================================
+
 -- scroll by 3 lines rather than 1
 vim.keymap.set('n', '<C-e>', '3<C-e>')
 vim.keymap.set('n', '<C-y>', '3<C-y>')
@@ -53,26 +59,34 @@ vim.keymap.set('n', '<leader>j', '<C-w>j')
 vim.keymap.set('n', '<leader>k', '<C-w>k')
 vim.keymap.set('n', '<leader>l', '<C-w>l')
 
--- Plugins
+-- =============================================================================
+-- = Plugins =
+-- =============================================================================
+
+local Plug = vim.fn['plug#']
+
 vim.call('plug#begin')
 
--- Planary fns
+-- Deps
 Plug('nvim-lua/plenary.nvim')
+Plug('MunifTanjim/nui.nvim')
+Plug('nvim-tree/nvim-web-devicons')
 
--- Tree sitter
+-- Syntax
 Plug('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate' })
 
--- Telescope
+-- Search
 Plug('nvim-telescope/telescope-live-grep-args.nvim')
 Plug('nvim-telescope/telescope.nvim', { ['rev'] = '0.1.x' })
 
--- Oil
+-- File browsing
 Plug('stevearc/oil.nvim')
+Plug('nvim-neo-tree/neo-tree.nvim')
 
--- sonokai
+-- Color schemes
 Plug('sainnhe/sonokai')
 
--- Prettier
+-- Linting/Formatting
 Plug('prettier/vim-prettier')
 
 -- LSP
@@ -84,34 +98,24 @@ Plug('hrsh7th/cmp-nvim-lsp')
 Plug('L3MON4D3/LuaSnip')
 Plug('VonHeikemen/lsp-zero.nvim', { ['branch'] = 'v3.x' })
 
--- dev icons
-Plug('nvim-tree/nvim-web-devicons')
-
--- gitsigns
+-- git
 Plug('lewis6991/gitsigns.nvim')
 
--- file tree
-Plug('MunifTanjim/nui.nvim')
-Plug('nvim-neo-tree/neo-tree.nvim')
-
--- status line
+-- HUD
 Plug('nvim-lualine/lualine.nvim')
-
--- quick commenting
-Plug('numToStr/Comment.nvim')
-
--- indent guides
 Plug('lukas-reineke/indent-blankline.nvim')
-
--- bracket pairs
-Plug('windwp/nvim-autopairs')
-
--- bufferlines
 Plug('akinsho/bufferline.nvim')
 
+-- Ease of use
+Plug('numToStr/Comment.nvim')
+Plug('windwp/nvim-autopairs')
 
 vim.call('plug#end')
 
--- Color Scheme
+
+-- =============================================================================
+-- = ColorSchemes =
+-- =============================================================================
+
 vim.cmd.colorscheme("sonokai")
 
