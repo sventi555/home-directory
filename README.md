@@ -25,7 +25,7 @@ Drag all fonts into fontbook
     - General
         - Theme = Minimal
     - Dimming
-        - Dimming amount = 15
+        - Disable 'Dim inactive split panes'
 
 4) Go to Mac System Preferences -> Privacy & Security -> Developer Tools and add iTerm
 

@@ -59,6 +59,20 @@ vim.keymap.set('n', '<leader>j', '<C-w>j')
 vim.keymap.set('n', '<leader>k', '<C-w>k')
 vim.keymap.set('n', '<leader>l', '<C-w>l')
 
+
+-- =============================================================================
+-- = Autocmds =
+-- =============================================================================
+
+-- don't include quickfix in list of buffers
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'qf',
+  callback = function()
+    vim.bo.buflisted = false
+  end,
+})
+
+
 -- =============================================================================
 -- = Plugins =
 -- =============================================================================
