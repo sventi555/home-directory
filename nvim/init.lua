@@ -123,6 +123,7 @@ Plug('akinsho/bufferline.nvim')
 -- Ease of use
 Plug('numToStr/Comment.nvim')
 Plug('windwp/nvim-autopairs')
+Plug('echasnovski/mini.bufremove')
 
 vim.call('plug#end')
 

@@ -15,4 +15,8 @@ require('neo-tree').setup({
     hijack_netrw_behavior = "disabled"
   }
 })
-vim.keymap.set('n', '<leader>t', '<Cmd>Neotree toggle<Cr>')
+
+vim.keymap.set('n', '<leader>tt', '<Cmd>Neotree toggle<Cr>')
+vim.keymap.set('n', '<leader>tc', '<Cmd>Neotree close<Cr>')
+vim.keymap.set('n', '<leader>tf', '<Cmd>Neotree focus<Cr>')
+vim.keymap.set('n', '<leader>tg', '<Cmd>Neotree git_status<Cr>')
