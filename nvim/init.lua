@@ -31,6 +31,10 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.smartindent = true
 
+-- Timeout
+vim.o.timeout = true
+vim.o.timeoutlen = 500
+
 -- =============================================================================
 -- = Remaps =
 -- =============================================================================
@@ -95,7 +99,6 @@ Plug('nvim-telescope/telescope.nvim', { ['rev'] = '0.1.x' })
 
 -- File browsing
 Plug('stevearc/oil.nvim')
-Plug('nvim-neo-tree/neo-tree.nvim')
 
 -- Color schemes
 Plug('sainnhe/sonokai')
@@ -118,12 +121,11 @@ Plug('lewis6991/gitsigns.nvim')
 -- HUD
 Plug('nvim-lualine/lualine.nvim')
 Plug('lukas-reineke/indent-blankline.nvim')
-Plug('akinsho/bufferline.nvim')
 
 -- Ease of use
 Plug('numToStr/Comment.nvim')
 Plug('windwp/nvim-autopairs')
-Plug('echasnovski/mini.bufremove')
+Plug('folke/which-key.nvim')
 
 vim.call('plug#end')
 
