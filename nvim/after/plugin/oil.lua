@@ -12,4 +12,8 @@ require("oil").setup({
     end,
   }
 })
-vim.keymap.set('n', '<leader>e', "<CMD>Oil<CR>")
+
+local wk = require('which-key')
+wk.register({
+  ['<leader>e'] = { '<CMD>Oil<CR>', 'Oil' }
+})

@@ -23,9 +23,16 @@ telescope.setup({
 
 telescope.load_extension('live_grep_args')
 
-vim.keymap.set('n', '<leader>ff', builtin.find_files)
-vim.keymap.set('n', '<leader>fp', builtin.git_files)
-vim.keymap.set('n', '<leader>fs', telescope.extensions.live_grep_args.live_grep_args)
-vim.keymap.set('n', '<leader>fg', builtin.git_status)
-vim.keymap.set('n', '<leader>fb', builtin.buffers)
-vim.keymap.set('n', '<leader>fh', builtin.help_tags)
+local wk = require('which-key')
+wk.register({
+  ['<leader>f'] = {
+    name = "Telescope",
+    f = { builtin.find_files, "Find files" },
+    p = { builtin.git_files, "Find project files" },
+    s = { telescope.extensions.live_grep_args.live_grep_args, "Live grep" },
+    g = { builtin.git_status, "Find git changes" },
+    b = { builtin.buffers, "Find buffers" },
+    h = { builtin.help_tags, "Find help tags" }
+  }
+})
+
