@@ -61,11 +61,10 @@ vim +'PlugInstall --sync' +qa
 ```
 
 
-## lazygit
+## git
 
 ```
-brew install lazygit git-delta
-cp ./lazy_git/config.yml "~/Library/Application Support/lazygit/"
+brew install lazygit
 cp ./dot_files/.gitconfig ~/
 ```
 
