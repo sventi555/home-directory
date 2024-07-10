@@ -14,8 +14,6 @@ require('gitsigns').setup({
     wk.register({
       ['<leader>g'] = {
         name = "Git",
-        s = { gitsigns.stage_hunk, "Stage hunk" },
-        S = { gitsigns.stage_buffer, "Stage buffer" },
         d = { gitsigns.diffthis, "Diff buffer" },
         r = { gitsigns.reset_hunk, "Reset hunk" },
         R = { gitsigns.reset_buffer, "Reset buffer" },
