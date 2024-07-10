@@ -1,4 +1,3 @@
-
 require('gitsigns').setup({
   current_line_blame_opts = {
     delay = 250
@@ -8,26 +7,8 @@ require('gitsigns').setup({
     local wk = require('which-key')
 
     wk.register({
-      [']c'] = {
-        function()
-          if vim.wo.diff then
-            vim.cmd.normal({']c', bang = true})
-          else
-            gitsigns.nav_hunk('next')
-          end
-        end,
-        "Next hunk"
-      },
-      [']c'] = {
-        function()
-          if vim.wo.diff then
-            vim.cmd.normal({'[c', bang = true})
-          else
-            gitsigns.nav_hunk('prev')
-          end
-        end,
-        "Prev hunk"
-      }
+      ['[h'] = { function() gitsigns.nav_hunk('prev') end, "Prev hunk" },
+      [']h'] = { function() gitsigns.nav_hunk('next') end, "Next hunk" }
     }, { buffer = bufnr })
 
     wk.register({
