@@ -103,9 +103,6 @@ Plug('stevearc/oil.nvim')
 -- Color schemes
 Plug('sainnhe/sonokai')
 
--- Linting/Formatting
-Plug('prettier/vim-prettier')
-
 -- LSP
 Plug('williamboman/mason.nvim')
 Plug('williamboman/mason-lspconfig.nvim')
