@@ -123,7 +123,6 @@ Plug('nvim-lualine/lualine.nvim')
 Plug('lukas-reineke/indent-blankline.nvim')
 
 -- Ease of use
-Plug('numToStr/Comment.nvim')
 Plug('windwp/nvim-autopairs')
 Plug('folke/which-key.nvim')
 
