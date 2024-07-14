@@ -14,6 +14,6 @@ require("oil").setup({
 })
 
 local wk = require('which-key')
-wk.register({
-  ['<leader>e'] = { '<CMD>Oil<CR>', 'Oil' }
+wk.add({
+  { '<leader>e', '<CMD>Oil<CR>', desc = 'Oil' }
 })

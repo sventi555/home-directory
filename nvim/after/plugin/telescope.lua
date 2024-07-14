@@ -24,15 +24,13 @@ telescope.setup({
 telescope.load_extension('live_grep_args')
 
 local wk = require('which-key')
-wk.register({
-  ['<leader>f'] = {
-    name = "Telescope",
-    f = { builtin.find_files, "Find files" },
-    p = { builtin.git_files, "Find project files" },
-    s = { telescope.extensions.live_grep_args.live_grep_args, "Live grep" },
-    g = { builtin.git_status, "Find git changes" },
-    b = { builtin.buffers, "Find buffers" },
-    h = { builtin.help_tags, "Find help tags" }
-  }
+wk.add({
+  { '<leader>f', group = "Telescope" },
+  { '<leader>ff', function() builtin.find_files() end, desc = "Find files" },
+  { '<leader>fp', function() builtin.git_files() end, desc = "Find project files" },
+  { '<leader>fs', function() telescope.extensions.live_grep_args.live_grep_args() end, desc = "Live grep" },
+  { '<leader>fg', function() builtin.git_status() end, desc = "Find git changes" },
+  { '<leader>fb', function() builtin.buffers() end, desc = "Find buffers" },
+  { '<leader>fh', function() builtin.help_tags() end, desc = "Find help tags" }
 })
 
