@@ -1,4 +1,6 @@
-includes = function(arr, s)
+local M = {}
+
+M.includes = function(arr, s)
   for _, val in ipairs(arr) do
     if s == val then
       return true
@@ -7,3 +9,5 @@ includes = function(arr, s)
 
   return false
 end
+
+return M
