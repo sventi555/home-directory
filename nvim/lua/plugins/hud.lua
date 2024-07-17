@@ -7,20 +7,20 @@ return {
         sections = {
           lualine_c = { { 'filename', path = 1 } },
           lualine_x = {},
-        }
+        },
       })
-    end
+    end,
   },
   {
     'lukas-reineke/indent-blankline.nvim',
-    main = "ibl",
+    main = 'ibl',
     config = function()
       require('ibl').setup({
         scope = {
           show_start = false,
-          show_end = false
-        }
+          show_end = false,
+        },
       })
-    end
-  }
+    end,
+  },
 }
