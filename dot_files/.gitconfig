@@ -7,7 +7,7 @@
 [commit]
   gpgsign = true
 [pull]
-  merge = true
+  rebase = false
 [push]
   autoSetupRemote = true  
 [alias]
