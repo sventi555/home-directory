@@ -4,6 +4,10 @@
   signingkey = ~/.ssh/id_rsa.pub
 [gpg]
   format = ssh
+[commit]
+  gpgsign = true
+[pull]
+  merge = true
 [push]
   autoSetupRemote = true  
 [alias]
