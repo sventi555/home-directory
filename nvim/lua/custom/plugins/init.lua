@@ -22,4 +22,9 @@ return {
       vim.keymap.set('n', '<leader>e', '<CMD>Oil --float<CR>', { desc = '[E]xplore parent directory' })
     end,
   },
+  {
+    'pmizio/typescript-tools.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+    opts = {},
+  },
 }
