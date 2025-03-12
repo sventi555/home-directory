@@ -25,6 +25,13 @@ return {
   {
     'pmizio/typescript-tools.nvim',
     dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
-    opts = {},
+    config = function()
+      require('typescript-tools').setup({})
+
+      vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
+        pattern = { '*.ts', '*.tsx', '*.js', '*.jsx' },
+        command = 'TSToolsOrganizeImports',
+      })
+    end,
   },
 }
