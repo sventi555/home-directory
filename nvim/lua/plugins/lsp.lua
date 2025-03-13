@@ -45,6 +45,12 @@ return {
       local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
       cmp.setup({
+        formatting = {
+          format = function(entry, vim_item)
+            vim_item.menu = '[' .. entry.source.name .. ']'
+            return vim_item
+          end,
+        },
         snippet = {
           expand = function(args)
             require('luasnip').lsp_expand(args.body)
@@ -57,7 +63,12 @@ return {
           ['<C-l>'] = cmp.mapping.complete(),
         }),
         sources = cmp.config.sources({
-          { name = 'nvim_lsp' },
+          {
+            name = 'nvim_lsp',
+            entry_filter = function(entry)
+              return require('cmp').lsp.CompletionItemKind.Text ~= entry:get_kind()
+            end,
+          },
           { name = 'nvim_lua' },
           { name = 'luasnip' },
         }, {
@@ -68,7 +79,7 @@ return {
   },
   {
     'pmizio/typescript-tools.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim', 'VonHeikemen/lsp-zero.nvim' },
+    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
     config = function()
       require('typescript-tools').setup({})
 
