@@ -11,7 +11,6 @@ vim.opt.hlsearch = false
 
 -- Windows
 vim.opt.splitright = true
-vim.opt.splitbelow = true
 
 -- Explorer
 vim.g.loaded_netrw = 1
