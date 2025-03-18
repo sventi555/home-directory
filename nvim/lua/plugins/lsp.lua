@@ -42,6 +42,21 @@ return {
         },
       })
 
+      local builtin = require('telescope.builtin')
+
+      vim.api.nvim_create_autocmd('LspAttach', {
+        callback = function(event)
+          local map = function(keys, func, desc)
+            vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+          end
+
+          map('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
+          map('gr', builtin.lsp_references, '[G]oto [R]eferences')
+          map('gD', vim.lsp.buf.type_definition, '[G]oto Type [D]efinition')
+          map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+        end,
+      })
+
       local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
       cmp.setup({

@@ -1,7 +1,13 @@
 return {
+  { 'tpope/vim-fugitive' },
   {
     'lewis6991/gitsigns.nvim',
     opts = {
+      signs = {
+        add = { text = '+' },
+        change = { text = '~' },
+        delete = { text = '_' },
+      },
       current_line_blame_opts = {
         delay = 250,
       },
@@ -11,28 +17,27 @@ return {
 
         wk.add({
           {
-            '[h',
+            '[c',
             function()
               gitsigns.nav_hunk('prev')
             end,
-            desc = 'Prev hunk',
+            desc = 'Prev [C]hange',
           },
           {
-            ']h',
+            ']c',
             function()
               gitsigns.nav_hunk('next')
             end,
-            desc = 'Next hunk',
+            desc = 'Next [C]hange',
           },
         }, { buffer = bufnr })
 
         wk.add({
           { '<leader>g', group = 'Git' },
-          { '<leader>gd', gitsigns.diffthis, desc = 'Diff buffer' },
-          { '<leader>gr', gitsigns.reset_hunk, desc = 'Reset hunk' },
-          { '<leader>gR', gitsigns.reset_buffer, desc = 'Reset buffer' },
-          { '<leader>gp', gitsigns.preview_hunk, desc = 'Preview hunk' },
-          { '<leader>gb', gitsigns.toggle_current_line_blame, desc = 'Toggle blame' },
+          { '<leader>gd', gitsigns.diffthis, desc = '[G]it [D]iff' },
+          { '<leader>gr', gitsigns.reset_hunk, desc = '[G]it [R]eset hunk' },
+          { '<leader>gp', gitsigns.preview_hunk, desc = '[Git] [P]review hunk' },
+          { '<leader>gb', gitsigns.toggle_current_line_blame, desc = '[Git] [B]lame toggle' },
         }, { buffer = bufnr })
       end,
     },
