@@ -24,5 +24,8 @@ return {
         lsp_format = 'fallback',
       },
     },
+    keys = {
+      { '<leader>f', vim.lsp.buf.format, desc = '[F]ormat' },
+    },
   },
 }

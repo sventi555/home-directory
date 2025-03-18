@@ -8,23 +8,12 @@ return {
     },
     config = function()
       local telescope = require('telescope')
-      local actions = require('telescope.actions')
 
       telescope.setup({
         defaults = {
           sorting_strategy = 'ascending',
           layout_config = {
             prompt_position = 'top',
-          },
-          mappings = {
-            n = {
-              ['<C-d>'] = actions.delete_buffer,
-              ['<C-h>'] = actions.which_key,
-            },
-            i = {
-              ['<C-d>'] = actions.delete_buffer,
-              ['<C-h>'] = actions.which_key,
-            },
           },
         },
       })
@@ -33,14 +22,14 @@ return {
       local wk = require('which-key')
 
       wk.add({
-        { '<leader>f', group = 'Telescope' },
-        { '<leader>fh', builtin.help_tags, desc = '[F]ind [H]elp' },
-        { '<leader>ff', builtin.find_files, desc = '[F]ind [F]iles' },
-        { '<leader>fp', builtin.git_files, desc = '[F]ind [P]roject files' },
-        { '<leader>fg', telescope.extensions.live_grep_args.live_grep_args, desc = '[F]ind by [G]rep' },
-        { '<leader>fc', builtin.git_status, desc = '[F]ind git [C]hanges' },
-        { '<leader>fb', builtin.buffers, desc = '[F]ind [B]uffers' },
-        { '<leader>fr', builtin.resume, desc = '[F]ind [R]esume' },
+        { '<leader>s', group = 'Telescope' },
+        { '<leader>sh', builtin.help_tags, desc = '[S]earch [H]elp' },
+        { '<leader>sf', builtin.find_files, desc = '[S]earch [F]iles' },
+        { '<leader>sp', builtin.git_files, desc = '[S]earch [P]roject files' },
+        { '<leader>sg', telescope.extensions.live_grep_args.live_grep_args, desc = '[S]earch by [G]rep' },
+        { '<leader>sc', builtin.git_status, desc = '[S]earch git [C]hanges' },
+        { '<leader>sb', builtin.buffers, desc = '[S]earch [B]uffers' },
+        { '<leader>sr', builtin.resume, desc = '[S]earch [R]esume' },
       })
     end,
   },
