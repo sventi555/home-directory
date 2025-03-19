@@ -16,6 +16,16 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 -- paste without losing results
 vim.keymap.set('x', '<leader>p', '"_dP')
 
--- move between quickfix files
+-- quickfix
+vim.keymap.set('n', '<leader>q', function()
+  local windows = vim.fn.getwininfo()
+  for _, win in pairs(windows) do
+    if win['quickfix'] == 1 then
+      vim.cmd.cclose()
+      return
+    end
+  end
+  vim.cmd.copen()
+end, { desc = 'Toggle [Q]uickfix' })
 vim.keymap.set('n', '<C-n>', '<Cmd>cnext<CR>')
 vim.keymap.set('n', '<C-p>', '<Cmd>cprev<CR>')
