@@ -15,3 +15,7 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
 -- paste without losing results
 vim.keymap.set('x', '<leader>p', '"_dP')
+
+-- move between quickfix files
+vim.keymap.set('n', '<C-n>', '<Cmd>cnext<CR>')
+vim.keymap.set('n', '<C-p>', '<Cmd>cprev<CR>')

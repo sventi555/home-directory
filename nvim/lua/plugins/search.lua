@@ -24,12 +24,13 @@ return {
       wk.add({
         { '<leader>s', group = 'Telescope' },
         { '<leader>sh', builtin.help_tags, desc = '[S]earch [H]elp' },
+        { '<leader>sk', builtin.keymaps, desc = '[S]earch [K]eymaps' },
         { '<leader>sf', builtin.find_files, desc = '[S]earch [F]iles' },
         { '<leader>sp', builtin.git_files, desc = '[S]earch [P]roject files' },
         { '<leader>sg', telescope.extensions.live_grep_args.live_grep_args, desc = '[S]earch by [G]rep' },
         { '<leader>sc', builtin.git_status, desc = '[S]earch git [C]hanges' },
-        { '<leader>sb', builtin.buffers, desc = '[S]earch [B]uffers' },
         { '<leader>sr', builtin.resume, desc = '[S]earch [R]esume' },
+        { '<leader>b', builtin.buffers, desc = '[B]uffers' },
       })
     end,
   },
