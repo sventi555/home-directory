@@ -30,6 +30,7 @@ return {
         { '<leader>sg', telescope.extensions.live_grep_args.live_grep_args, desc = '[S]earch by [G]rep' },
         { '<leader>sc', builtin.git_status, desc = '[S]earch git [C]hanges' },
         { '<leader>sr', builtin.resume, desc = '[S]earch [R]esume' },
+        { '<leader>so', function() builtin.oldfiles({cwd_only=true}) end, desc = '[S]earch [O]ld files'},
         { '<leader>b', builtin.buffers, desc = '[B]uffers' },
       })
     end,
