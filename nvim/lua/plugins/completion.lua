@@ -13,13 +13,10 @@ return {
   {
     'saghen/blink.cmp',
     dependencies = { 'rafamadriz/friendly-snippets' },
-    version = '*',
     opts = {
       appearance = {
-        use_nvim_cmp_as_default = true,
         nerd_font_variant = 'mono',
       },
-
       sources = {
         default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
         providers = {
@@ -31,13 +28,9 @@ return {
           },
         },
       },
-
+      signature = { enabled = true },
       keymap = {
-        ['<C-L>'] = {
-          function(cmp)
-            cmp.show()
-          end,
-        },
+        ['<C-L>'] = { 'show', 'show_documentation', 'hide_documentation' },
       },
     },
   },
