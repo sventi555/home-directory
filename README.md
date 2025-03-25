@@ -7,27 +7,11 @@ One-stop-shop to set up a new machine for development
 Drag all fonts into fontbook
 
 
-## iTerm2
+## Ghostty
 
-1) Download [iTerm2](https://iterm2.com/) and add to applications
+1) Download [Ghostty](https://iterm2.com/) and add to applications
 
-2) Open iTerm and import the profile _Terminal.json_
-
-3) Update the following settings:
-- General
-    - Closing
-        - Disable 'Confirm closing multiple sessions'
-        - Disable 'Confirm "Quit iTerm2"'
-    - Selection
-        - Enable 'Applications in terminal may access clipboard'
-        - Disable 'Clicking on a command selects it to restrict Find and Filter'
-- Appearance
-    - General
-        - Theme = Minimal
-    - Dimming
-        - Disable 'Dim inactive split panes'
-
-4) Go to Mac System Preferences -> Privacy & Security -> Developer Tools and add iTerm
+2) Open Ghostty and copy the contents of _ghostty.config_ to config
 
 
 ## Oh My Zsh

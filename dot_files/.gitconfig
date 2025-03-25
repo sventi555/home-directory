@@ -5,9 +5,6 @@
 [gpg]
   format = ssh
 [push]
-  autoSetupRemote = true  
+  autoSetupRemote = true
 [alias]
-  st = status
-  ch = checkout
-  cm = commit
   stall = stash --include-untracked
