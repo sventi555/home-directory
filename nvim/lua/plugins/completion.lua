@@ -35,6 +35,16 @@ return {
         },
         mapping = cmp.mapping.preset.insert({
           ['<C-l>'] = cmp.mapping.complete(),
+
+          -- traditional vim maps
+          ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+          ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+          ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+
+          -- ide maps cause why not
+          ['<Tab>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+          ['<S-Tab>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+          ['<CR>'] = cmp.mapping.confirm({ select = true }),
         }),
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
