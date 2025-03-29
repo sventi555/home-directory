@@ -23,12 +23,12 @@ return {
       })
 
       local format = function(bufnr)
+        require('conform').format({ bufnr = bufnr })
+
         -- Organize imports if command is available
         if vim.fn.exists(':OrganizeImports') > 0 then
           vim.cmd('OrganizeImports')
         end
-
-        require('conform').format({ bufnr = bufnr })
       end
 
       vim.api.nvim_create_autocmd('BufRead', {
