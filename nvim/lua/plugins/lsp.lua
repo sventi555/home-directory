@@ -25,14 +25,38 @@ return {
             })
           end,
           ['lua_ls'] = function()
-            local lspconfig = require('lspconfig')
-            lspconfig.lua_ls.setup({
+            require('lspconfig').lua_ls.setup({
               capabilities = capabilities,
               settings = {
                 Lua = {
                   diagnostics = {
                     globals = { 'vim' },
                   },
+                },
+              },
+            })
+          end,
+          ['ts_ls'] = function()
+            local function organize_imports()
+              local params = {
+                command = '_typescript.organizeImports',
+                arguments = { vim.api.nvim_buf_get_name(0) },
+              }
+              vim.lsp.buf.execute_command(params)
+            end
+
+            require('lspconfig').ts_ls.setup({
+              on_attach = function()
+                vim.api.nvim_create_autocmd('BufWritePre', {
+                  callback = organize_imports,
+                })
+                vim.keymap.set('n', '<leader>o', organize_imports, { desc = '[O]rganize imports' })
+              end,
+              capabilities = capabilities,
+              commands = {
+                OrganizeImports = {
+                  organize_imports,
+                  description = 'Organize Imports',
                 },
               },
             })
@@ -56,9 +80,4 @@ return {
       })
     end,
   },
-  -- {
-  --   'pmizio/typescript-tools.nvim',
-  --   dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
-  --   opts = {},
-  -- },
 }
