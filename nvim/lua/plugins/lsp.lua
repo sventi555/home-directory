@@ -47,9 +47,6 @@ return {
 
             require('lspconfig').ts_ls.setup({
               on_attach = function()
-                vim.api.nvim_create_autocmd('BufWritePre', {
-                  callback = organize_imports,
-                })
                 vim.keymap.set('n', '<leader>o', organize_imports, { desc = '[O]rganize imports' })
               end,
               capabilities = capabilities,
