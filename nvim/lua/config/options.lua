@@ -23,3 +23,11 @@ vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 
 vim.opt.smartindent = true
+
+-- no line numbers for terminal
+vim.api.nvim_create_autocmd('TermOpen', {
+  callback = function()
+    vim.opt.number = false
+    vim.opt.relativenumber = false
+  end,
+})
