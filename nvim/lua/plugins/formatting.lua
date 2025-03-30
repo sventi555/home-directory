@@ -22,26 +22,17 @@ return {
         },
       })
 
-      local format = function(bufnr)
-        require('conform').format({ bufnr = bufnr })
-
-        -- Organize imports if command is available
-        if vim.fn.exists(':OrganizeImports') > 0 then
-          vim.cmd('OrganizeImports')
-        end
-      end
-
       vim.api.nvim_create_autocmd('BufRead', {
         callback = function(args)
           vim.keymap.set('n', '<leader>f', function()
-            format(args.buf)
+            require('conform').format({ bufnr = args.buf })
           end, { desc = '[F]ormat' })
         end,
       })
 
       vim.api.nvim_create_autocmd('BufWritePre', {
         callback = function(args)
-          format(args.buf)
+          require('conform').format({ bufnr = args.buf })
         end,
       })
     end,
