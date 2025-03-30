@@ -37,28 +37,17 @@ return {
             })
           end,
           ['ts_ls'] = function()
-            local function organize_imports()
-              local params = {
-                command = '_typescript.organizeImports',
-                arguments = { vim.api.nvim_buf_get_name(0) },
-              }
-              vim.lsp.buf.execute_command(params)
-            end
-
             require('lspconfig').ts_ls.setup({
               on_attach = function()
-                vim.api.nvim_create_autocmd('BufWritePre', {
-                  callback = organize_imports,
-                })
-                vim.keymap.set('n', '<leader>o', organize_imports, { desc = '[O]rganize imports' })
+                vim.keymap.set('n', '<leader>o', function()
+                  local params = {
+                    command = '_typescript.organizeImports',
+                    arguments = { vim.api.nvim_buf_get_name(0) },
+                  }
+                  vim.lsp.buf.execute_command(params)
+                end, { desc = '[O]rganize imports' })
               end,
               capabilities = capabilities,
-              commands = {
-                OrganizeImports = {
-                  organize_imports,
-                  description = 'Organize Imports',
-                },
-              },
             })
           end,
         },
