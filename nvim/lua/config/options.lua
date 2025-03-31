@@ -8,6 +8,7 @@ vim.opt.scrolloff = 5
 vim.opt.updatetime = 50
 vim.opt.showcmd = true
 vim.opt.hlsearch = false
+vim.opt.wrap = false
 
 -- Windows
 vim.opt.splitright = true

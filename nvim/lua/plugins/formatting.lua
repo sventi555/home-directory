@@ -22,13 +22,9 @@ return {
         },
       })
 
-      vim.api.nvim_create_autocmd('BufRead', {
-        callback = function(args)
-          vim.keymap.set('n', '<leader>f', function()
-            require('conform').format({ bufnr = args.buf })
-          end, { desc = '[F]ormat' })
-        end,
-      })
+      vim.keymap.set('n', '<leader>f', function()
+        require('conform').format()
+      end, { desc = '[F]ormat' })
 
       vim.api.nvim_create_autocmd('BufWritePre', {
         callback = function(args)
