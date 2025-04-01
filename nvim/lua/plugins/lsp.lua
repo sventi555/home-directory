@@ -4,15 +4,17 @@ return {
     dependencies = {
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
-      'hrsh7th/nvim-cmp',
-      'hrsh7th/cmp-nvim-lsp',
+      -- 'hrsh7th/nvim-cmp',
+      -- 'hrsh7th/cmp-nvim-lsp',
+      'saghen/blink.cmp',
     },
     config = function()
       local capabilities = vim.tbl_deep_extend(
         'force',
         {},
         vim.lsp.protocol.make_client_capabilities(),
-        require('cmp_nvim_lsp').default_capabilities()
+        -- require('cmp_nvim_lsp').default_capabilities()
+        require('blink.cmp').get_lsp_capabilities()
       )
 
       require('mason').setup()
@@ -38,6 +40,11 @@ return {
           end,
           ['ts_ls'] = function()
             require('lspconfig').ts_ls.setup({
+              -- settings = {
+              --   completions = {
+              --     completeFunctionCalls = true,
+              --   },
+              -- },
               on_attach = function()
                 vim.keymap.set('n', '<leader>o', function()
                   local params = {
