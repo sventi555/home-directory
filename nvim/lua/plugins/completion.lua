@@ -21,7 +21,31 @@ return {
         nerd_font_variant = 'mono',
       },
 
-      completion = { documentation = { auto_show = true } },
+      completion = {
+        accept = { auto_brackets = { enabled = false } },
+        menu = {
+          draw = {
+            columns = { { 'label', gap = 2, 'kind_icon' }, { 'label_description' } },
+            components = {
+              label_description = {
+                text = function(ctx)
+                  local lsp_client = vim.lsp.get_client_by_id(ctx.item.client_id)
+                  if lsp_client == nil then
+                    return ctx.label_description
+                  end
+
+                  local lsp_name = lsp_client.name
+                  if lsp_name == 'ts_ls' then
+                    return ctx.item.detail
+                  end
+
+                  return ctx.label_description
+                end,
+              },
+            },
+          },
+        },
+      },
 
       signature = { enabled = true },
 
@@ -38,49 +62,4 @@ return {
       },
     },
   },
-  -- {
-  --   'hrsh7th/nvim-cmp',
-  --   lazy = false,
-  --   dependencies = {
-  --     'hrsh7th/cmp-nvim-lsp',
-  --     'hrsh7th/cmp-buffer',
-  --     'hrsh7th/cmp-path',
-  --     'hrsh7th/cmp-cmdline',
-  --     'L3MON4D3/LuaSnip',
-  --     'saadparwaiz1/cmp_luasnip',
-  --   },
-  --   config = function()
-  --     local cmp = require('cmp')
-  --
-  --     cmp.setup({
-  --       snippet = {
-  --         expand = function(args)
-  --           require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-  --         end,
-  --       },
-  --       window = {
-  --         completion = cmp.config.window.bordered(),
-  --         documentation = cmp.config.window.bordered(),
-  --       },
-  --       mapping = cmp.mapping.preset.insert({
-  --         ['<C-space>'] = cmp.mapping.complete(),
-  --
-  --         -- traditional vim maps
-  --         ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-  --         ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-  --         ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-  --       }),
-  --       sources = cmp.config.sources({
-  --         {
-  --           name = 'lazydev',
-  --           -- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
-  --           group_index = 0,
-  --         },
-  --         { name = 'nvim_lsp' },
-  --         { name = 'luasnip' },
-  --         { name = 'buffer' },
-  --       }),
-  --     })
-  --   end,
-  -- },
 }
