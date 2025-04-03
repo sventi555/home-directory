@@ -14,17 +14,21 @@ return {
         require('blink.cmp').get_lsp_capabilities()
       )
 
+      local lspconfig = require('lspconfig')
+      local configs = require('lspconfig.configs')
+
       require('mason').setup()
       require('mason-lspconfig').setup({
         ensure_installed = { 'lua_ls', 'ts_ls' },
+        automatic_installation = false,
         handlers = {
           function(server_name)
-            require('lspconfig')[server_name].setup({
+            lspconfig[server_name].setup({
               capabilities = capabilities,
             })
           end,
           ['lua_ls'] = function()
-            require('lspconfig').lua_ls.setup({
+            lspconfig.lua_ls.setup({
               capabilities = capabilities,
               settings = {
                 Lua = {
@@ -36,7 +40,8 @@ return {
             })
           end,
           ['ts_ls'] = function()
-            require('lspconfig').ts_ls.setup({
+            lspconfig.ts_ls.setup({
+              -- only seems to work for actual "functions", not arrow functions...
               -- settings = {
               --   completions = {
               --     completeFunctionCalls = true,
