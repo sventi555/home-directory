@@ -29,12 +29,3 @@ vim.keymap.set('n', '<leader>q', function()
 end, { desc = 'Toggle [Q]uickfix' })
 vim.keymap.set('n', '<C-n>', '<Cmd>cnext<CR>')
 vim.keymap.set('n', '<C-p>', '<Cmd>cprev<CR>')
-
--- terminal
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
-vim.keymap.set('n', '<leader>t', function()
-  vim.cmd.vnew()
-  vim.cmd.term()
-  vim.cmd.wincmd('J')
-  vim.api.nvim_win_set_height(0, 15)
-end, { desc = '[T]erminal' })

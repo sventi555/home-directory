@@ -1,5 +1,21 @@
 return {
-  { 'tpope/vim-fugitive' },
+  {
+    'kdheepak/lazygit.nvim',
+    lazy = true,
+    cmd = {
+      'LazyGit',
+      'LazyGitConfig',
+      'LazyGitCurrentFile',
+      'LazyGitFilter',
+      'LazyGitFilterCurrentFile',
+    },
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    keys = {
+      { '<leader>G', '<cmd>LazyGit<cr>', desc = 'Lazy[G]it' },
+    },
+  },
   {
     'lewis6991/gitsigns.nvim',
     opts = {
@@ -36,8 +52,8 @@ return {
           { '<leader>g', group = 'Git' },
           { '<leader>gd', gitsigns.diffthis, desc = '[G]it [D]iff' },
           { '<leader>gr', gitsigns.reset_hunk, desc = '[G]it [R]eset hunk' },
-          { '<leader>gp', gitsigns.preview_hunk, desc = '[Git] [P]review hunk' },
-          { '<leader>gb', gitsigns.toggle_current_line_blame, desc = '[Git] [B]lame toggle' },
+          { '<leader>gp', gitsigns.preview_hunk, desc = '[G]it [P]review hunk' },
+          { '<leader>gb', gitsigns.toggle_current_line_blame, desc = '[G]it [B]lame toggle' },
         }, { buffer = bufnr })
       end,
     },

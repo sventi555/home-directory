@@ -17,6 +17,18 @@ return {
       local lspconfig = require('lspconfig')
       local configs = require('lspconfig.configs')
 
+      if not configs.firestore_ls then
+        configs.firestore_ls = {
+          default_config = {
+            cmd = { 'firestore-rules-lsp' },
+            filetypes = { 'rules' },
+            root_dir = lspconfig.util.root_pattern('.git'),
+            settings = {},
+          },
+        }
+      end
+      lspconfig.firestore_ls.setup({})
+
       require('mason').setup()
       require('mason-lspconfig').setup({
         ensure_installed = { 'lua_ls', 'ts_ls' },
@@ -73,7 +85,8 @@ return {
           map('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
           map('gr', builtin.lsp_references, '[G]oto [R]eferences')
           map('gD', vim.lsp.buf.type_definition, '[G]oto Type [D]efinition')
-          map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+          map('<leader>r', vim.lsp.buf.rename, '[R]ename')
+          map('<leader>d', vim.diagnostic.open_float, '[D]iagnostic')
         end,
       })
     end,

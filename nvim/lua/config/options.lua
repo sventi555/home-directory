@@ -32,3 +32,11 @@ vim.api.nvim_create_autocmd('TermOpen', {
     vim.opt.relativenumber = false
   end,
 })
+
+-- register file types
+vim.api.nvim_create_autocmd('BufRead', {
+  pattern = '*.rules',
+  callback = function()
+    vim.bo.filetype = 'rules'
+  end,
+})
