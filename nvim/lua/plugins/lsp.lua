@@ -20,7 +20,7 @@ return {
       if not configs.firestore_ls then
         configs.firestore_ls = {
           default_config = {
-            cmd = { 'firestore-rules-lsp' },
+            cmd = { vim.fn.stdpath('config') .. '/lsps/firestore-rules-lsp' },
             filetypes = { 'rules' },
             root_dir = lspconfig.util.root_pattern('.git'),
             settings = {},
@@ -52,13 +52,22 @@ return {
             })
           end,
           ['ts_ls'] = function()
-            local function organize_imports()
+            local organize_imports_params = function()
               local params = {
                 command = '_typescript.organizeImports',
                 arguments = { vim.api.nvim_buf_get_name(0) },
                 title = '',
               }
-              vim.lsp.buf.execute_command(params)
+
+              return params
+            end
+
+            local organize_imports_sync = function(bufnr)
+              vim.lsp.buf_request_sync(bufnr, 'workspace/executeCommand', organize_imports_params(), 500)
+            end
+
+            local function organize_imports()
+              vim.lsp.buf.execute_command(organize_imports_params())
             end
 
             lspconfig.ts_ls.setup({
@@ -76,6 +85,10 @@ return {
                 OrganizeImports = {
                   organize_imports,
                   description = 'Organize Imports',
+                },
+                OrganizeImportsSync = {
+                  organize_imports_sync,
+                  description = 'Organize Imports (Sync)',
                 },
               },
             })
