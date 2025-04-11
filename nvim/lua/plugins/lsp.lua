@@ -62,8 +62,8 @@ return {
               return params
             end
 
-            local organize_imports_sync = function(bufnr)
-              vim.lsp.buf_request_sync(bufnr, 'workspace/executeCommand', organize_imports_params(), 500)
+            local organize_imports_sync = function()
+              vim.lsp.buf_request_sync(0, 'workspace/executeCommand', organize_imports_params(), 500)
             end
 
             local function organize_imports()
@@ -79,18 +79,10 @@ return {
               -- },
               on_attach = function()
                 vim.keymap.set('n', '<leader>o', organize_imports, { desc = '[O]rganize imports' })
+                vim.api.nvim_buf_create_user_command(0, 'OrganizeImports', organize_imports, {})
+                vim.api.nvim_buf_create_user_command(0, 'OrganizeImportsSync', organize_imports_sync, {})
               end,
               capabilities = capabilities,
-              commands = {
-                OrganizeImports = {
-                  organize_imports,
-                  description = 'Organize Imports',
-                },
-                OrganizeImportsSync = {
-                  organize_imports_sync,
-                  description = 'Organize Imports (Sync)',
-                },
-              },
             })
           end,
         },
