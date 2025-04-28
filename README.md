@@ -9,7 +9,7 @@ Drag all fonts into fontbook
 
 ## Ghostty
 
-1) Download [Ghostty](https://iterm2.com/) and add to applications
+1) Download [Ghostty](http://ghostty.org) and add to applications
 
 2) Open Ghostty and copy the contents of _ghostty.config_ to config
 
