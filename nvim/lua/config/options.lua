@@ -9,6 +9,7 @@ vim.opt.updatetime = 50
 vim.opt.showcmd = true
 vim.opt.hlsearch = false
 vim.opt.wrap = false
+vim.opt.scl = 'yes:1'
 
 -- Windows
 vim.opt.splitright = true
