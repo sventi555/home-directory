@@ -15,14 +15,6 @@ return {
           layout_config = {
             prompt_position = 'top',
           },
-          mappings = {
-            i = {
-              ['<C-d>'] = require('telescope.actions').delete_buffer,
-            },
-            n = {
-              ['<C-d>'] = require('telescope.actions').delete_buffer,
-            },
-          },
         },
       })
 
