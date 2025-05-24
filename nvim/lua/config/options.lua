@@ -36,8 +36,8 @@ vim.api.nvim_create_autocmd('TermOpen', {
 
 -- register file types
 vim.api.nvim_create_autocmd('BufRead', {
-  pattern = '*.rules',
+  pattern = 'firestore.rules',
   callback = function()
-    vim.bo.filetype = 'rules'
+    vim.bo.filetype = 'firestore-rules'
   end,
 })
