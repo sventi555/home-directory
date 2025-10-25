@@ -20,6 +20,7 @@ return {
           yaml = { 'prettier' },
           css = { 'prettier' },
           scss = { 'prettier' },
+          html = { 'prettier' },
         },
       })
 
