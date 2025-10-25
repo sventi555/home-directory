@@ -15,32 +15,32 @@ return {
       )
 
       local lspconfig = require('lspconfig')
-      local configs = require('lspconfig.configs')
+      -- local configs = require('lspconfig.configs')
 
       -- firestore rules lsp
-      if not configs.firestore_ls then
-        configs.firestore_ls = {
-          default_config = {
-            cmd = { vim.fn.stdpath('config') .. '/lsps/firestore-rules-lsp' },
-            filetypes = { 'firestore-rules' },
-            root_dir = lspconfig.util.root_pattern('.git'),
-            settings = {},
-          },
-        }
-      end
-      lspconfig.firestore_ls.setup({})
+      -- if not configs.firestore_ls then
+      --   configs.firestore_ls = {
+      --     default_config = {
+      --       cmd = { vim.fn.stdpath('config') .. '/lsps/firestore-rules-lsp' },
+      --       filetypes = { 'firestore-rules' },
+      --       root_dir = lspconfig.util.root_pattern('.git'),
+      --       settings = {},
+      --     },
+      --   }
+      -- end
+      -- lspconfig.firestore_ls.setup({})
 
       -- dart lsp
-      if not configs.dartls then
-        configs.dartls = {
-          default_config = {
-            cmd = { 'dart', 'language-server', '--protocol=lsp' },
-            filetypes = { 'dart' },
-            root_dir = lspconfig.util.root_pattern('pubspec.yaml'),
-          },
-        }
-      end
-      lspconfig.dartls.setup({})
+      -- if not configs.dartls then
+      --   configs.dartls = {
+      --     default_config = {
+      --       cmd = { 'dart', 'language-server', '--protocol=lsp' },
+      --       filetypes = { 'dart' },
+      --       root_dir = lspconfig.util.root_pattern('pubspec.yaml'),
+      --     },
+      --   }
+      -- end
+      -- lspconfig.dartls.setup({})
 
       require('mason').setup()
       require('mason-lspconfig').setup({
