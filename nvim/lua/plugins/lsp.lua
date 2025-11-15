@@ -50,6 +50,7 @@ return {
           -- 'eslint'
           -- 'tailwindcss'
           -- 'gopls',
+          -- 'pyright',
         },
         automatic_installation = false,
         handlers = {
