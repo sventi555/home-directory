@@ -12,7 +12,6 @@ return {
       require('conform').setup({
         formatters_by_ft = {
           lua = { 'stylua' },
-          dart = { 'dart_format' },
           javascript = { 'prettier' },
           typescript = { 'prettier' },
           typescriptreact = { 'prettier' },
@@ -21,6 +20,8 @@ return {
           css = { 'prettier' },
           scss = { 'prettier' },
           html = { 'prettier' },
+          -- dart = { 'dart_format' },
+          -- go = { 'gofmt' }
         },
       })
 
