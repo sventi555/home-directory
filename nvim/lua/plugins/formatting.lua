@@ -3,7 +3,12 @@ return {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
     dependencies = { 'williamboman/mason.nvim' },
     opts = {
-      ensure_installed = { 'stylua', 'prettier' },
+      ensure_installed = {
+        'stylua',
+        'prettier',
+        -- 'black',
+        -- 'isort',
+      },
     },
   },
   {
@@ -22,6 +27,7 @@ return {
           html = { 'prettier' },
           -- dart = { 'dart_format' },
           -- go = { 'gofmt' }
+          -- python = { 'black', 'isort'}
         },
       })
 
