@@ -37,10 +37,6 @@ return {
 
       vim.api.nvim_create_autocmd('BufWritePre', {
         callback = function(args)
-          if vim.fn.exists(':OrganizeImportsSync') > 0 then
-            vim.cmd('OrganizeImportsSync')
-          end
-
           require('conform').format({ bufnr = args.buf })
         end,
       })

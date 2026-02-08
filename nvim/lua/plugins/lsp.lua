@@ -72,24 +72,6 @@ return {
             })
           end,
           ['ts_ls'] = function()
-            local organize_imports_params = function()
-              local params = {
-                command = '_typescript.organizeImports',
-                arguments = { vim.api.nvim_buf_get_name(0) },
-                title = '',
-              }
-
-              return params
-            end
-
-            local organize_imports_sync = function()
-              vim.lsp.buf_request_sync(0, 'workspace/executeCommand', organize_imports_params(), 500)
-            end
-
-            local function organize_imports()
-              vim.lsp.buf.execute_command(organize_imports_params())
-            end
-
             lspconfig.ts_ls.setup({
               -- only seems to work for actual "functions", not arrow functions...
               -- settings = {
@@ -97,11 +79,6 @@ return {
               --     completeFunctionCalls = true,
               --   },
               -- },
-              on_attach = function()
-                vim.keymap.set('n', '<leader>o', organize_imports, { desc = '[O]rganize imports' })
-                vim.api.nvim_buf_create_user_command(0, 'OrganizeImports', organize_imports, {})
-                vim.api.nvim_buf_create_user_command(0, 'OrganizeImportsSync', organize_imports_sync, {})
-              end,
               capabilities = capabilities,
             })
           end,
