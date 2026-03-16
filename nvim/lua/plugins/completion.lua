@@ -11,55 +11,37 @@ return {
     },
   },
   {
-    'saghen/blink.cmp',
-    dependencies = { 'rafamadriz/friendly-snippets' },
-    version = '1.*',
-    ---@module 'blink.cmp'
-    ---@type blink.cmp.Config
-    opts = {
-      appearance = {
-        nerd_font_variant = 'mono',
-      },
-
-      completion = {
-        accept = { auto_brackets = { enabled = false } },
-        menu = {
-          draw = {
-            columns = { { 'label', gap = 2, 'kind_icon' }, { 'label_description' } },
-            components = {
-              label_description = {
-                text = function(ctx)
-                  local lsp_client = vim.lsp.get_client_by_id(ctx.item.client_id)
-                  if lsp_client == nil then
-                    return ctx.label_description
-                  end
-
-                  local lsp_name = lsp_client.name
-                  if lsp_name == 'ts_ls' then
-                    return ctx.item.detail
-                  end
-
-                  return ctx.label_description
-                end,
-              },
-            },
-          },
-        },
-      },
-
-      signature = { enabled = true },
-
-      sources = {
-        default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
-        providers = {
-          lazydev = {
-            name = 'LazyDev',
-            module = 'lazydev.integrations.blink',
-            -- make lazydev completions top priority (see `:h blink.cmp`)
-            score_offset = 100,
-          },
-        },
-      },
+    'hrsh7th/nvim-cmp',
+    dependencies = {
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline',
+      { 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
     },
+    config = function()
+      local cmp = require('cmp')
+
+      cmp.setup({
+        expand = function(args)
+          require('luasnip').lsp_expand(args.body)
+        end,
+
+        mapping = cmp.mapping.preset.insert({
+          ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+          ['<C-f>'] = cmp.mapping.scroll_docs(4),
+          ['<C-Space>'] = cmp.mapping.complete(),
+          ['<C-e>'] = cmp.mapping.abort(),
+          ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+        }),
+
+        sources = cmp.config.sources({
+          { name = 'nvim_lsp' },
+          { name = 'luasnip' },
+        }, {
+          { name = 'buffer' },
+        }),
+      })
+    end,
   },
 }
