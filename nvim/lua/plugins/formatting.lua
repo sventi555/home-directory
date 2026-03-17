@@ -5,7 +5,7 @@ return {
     opts = {
       ensure_installed = {
         'stylua',
-        'prettier',
+        'biome',
         -- 'black',
         -- 'isort',
       },
@@ -17,14 +17,14 @@ return {
       require('conform').setup({
         formatters_by_ft = {
           lua = { 'stylua' },
-          javascript = { 'prettier' },
-          typescript = { 'prettier' },
-          typescriptreact = { 'prettier' },
-          json = { 'prettier' },
-          yaml = { 'prettier' },
-          css = { 'prettier' },
-          scss = { 'prettier' },
-          html = { 'prettier' },
+          javascript = { 'biome' },
+          typescript = { 'biome' },
+          typescriptreact = { 'biome' },
+          json = { 'biome' },
+          yaml = { 'biome' },
+          css = { 'biome' },
+          scss = { 'biome' },
+          html = { 'biome' },
           -- dart = { 'dart_format' },
           -- go = { 'gofmt' }
           -- python = { 'black', 'isort'}
