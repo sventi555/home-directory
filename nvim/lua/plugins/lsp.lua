@@ -30,18 +30,6 @@ return {
       -- end
       -- lspconfig.firestore_ls.setup({})
 
-      -- dart lsp
-      -- if not configs.dartls then
-      --   configs.dartls = {
-      --     default_config = {
-      --       cmd = { 'dart', 'language-server', '--protocol=lsp' },
-      --       filetypes = { 'dart' },
-      --       root_dir = lspconfig.util.root_pattern('pubspec.yaml'),
-      --     },
-      --   }
-      -- end
-      -- lspconfig.dartls.setup({})
-
       require('mason').setup()
       require('mason-lspconfig').setup({
         ensure_installed = {
