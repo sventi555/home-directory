@@ -35,6 +35,7 @@ return {
           'lua_ls',
           'ts_ls',
           'eslint',
+          'biome',
           'tailwindcss',
           -- 'gopls',
           -- 'pyright',
