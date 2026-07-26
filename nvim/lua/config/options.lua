@@ -26,6 +26,11 @@ vim.opt.softtabstop = 2
 
 vim.opt.smartindent = true
 
+-- Folds
+vim.opt.foldmethod = 'indent'
+vim.opt.foldlevel = 99
+vim.opt.foldenable = true
+
 -- register file types
 vim.api.nvim_create_autocmd('BufRead', {
   pattern = 'firestore.rules',

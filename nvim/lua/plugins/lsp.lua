@@ -2,8 +2,8 @@ return {
   {
     'neovim/nvim-lspconfig',
     dependencies = {
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
+      'mason-org/mason.nvim',
+      'mason-org/mason-lspconfig.nvim',
     },
     config = function()
       local capabilities = vim.tbl_deep_extend(
@@ -13,21 +13,21 @@ return {
         require('cmp_nvim_lsp').default_capabilities()
       )
 
-      local lspconfig = require('lspconfig')
-      -- local configs = require('lspconfig.configs')
+      -- Apply capabilities to every server by default
+      vim.lsp.config('*', {
+        capabilities = capabilities,
+      })
 
-      -- firestore rules lsp
-      -- if not configs.firestore_ls then
-      --   configs.firestore_ls = {
-      --     default_config = {
-      --       cmd = { vim.fn.stdpath('config') .. '/lsps/firestore-rules-lsp' },
-      --       filetypes = { 'firestore-rules' },
-      --       root_dir = lspconfig.util.root_pattern('.git'),
-      --       settings = {},
-      --     },
-      --   }
-      -- end
-      -- lspconfig.firestore_ls.setup({})
+      -- Per-server overrides via vim.lsp.config()
+      vim.lsp.config('lua_ls', {
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { 'vim' },
+            },
+          },
+        },
+      })
 
       require('mason').setup()
       require('mason-lspconfig').setup({
@@ -37,40 +37,12 @@ return {
           'eslint',
           'biome',
           'tailwindcss',
+          'cssls',
+          'rust_analyzer',
           -- 'gopls',
           -- 'pyright',
         },
-        automatic_installation = false,
-        handlers = {
-          function(server_name)
-            lspconfig[server_name].setup({
-              capabilities = capabilities,
-            })
-          end,
-          ['lua_ls'] = function()
-            lspconfig.lua_ls.setup({
-              capabilities = capabilities,
-              settings = {
-                Lua = {
-                  diagnostics = {
-                    globals = { 'vim' },
-                  },
-                },
-              },
-            })
-          end,
-          ['ts_ls'] = function()
-            lspconfig.ts_ls.setup({
-              -- only seems to work for actual "functions", not arrow functions...
-              -- settings = {
-              --   completions = {
-              --     completeFunctionCalls = true,
-              --   },
-              -- },
-              capabilities = capabilities,
-            })
-          end,
-        },
+        automatic_enable = true,
       })
 
       local builtin = require('telescope.builtin')

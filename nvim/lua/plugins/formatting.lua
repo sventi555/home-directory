@@ -25,6 +25,7 @@ return {
           css = { 'prettier' },
           scss = { 'prettier' },
           html = { 'prettier' },
+          rust = { 'rustfmt' },
           -- go = { 'gofmt' }
           -- python = { 'black', 'isort'}
         },
