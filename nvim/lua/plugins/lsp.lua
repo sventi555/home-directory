@@ -29,6 +29,16 @@ return {
         },
       })
 
+      vim.lsp.config('tailwindcss', {
+        settings = {
+          tailwindCSS = {
+            lint = {
+              suggestCanonicalClasses = 'ignore',
+            },
+          },
+        },
+      })
+
       require('mason').setup()
       require('mason-lspconfig').setup({
         ensure_installed = {
